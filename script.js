@@ -43,11 +43,14 @@ function scoreCount(getResult) {
    }
 //
 
+
+
 //Define function if user wins 5 times
 function userVictorious(winCount){
     if (winCount > 4){
-        console.log('winner, winner, chicken dinner')
-        addWinningLink()
+        console.log('winner, winner, chicken dinner');
+        btnContainer.style = 'visibility: hidden'; //Not working, need to find out why
+        addWinningLink();
     }
 }
 
@@ -56,28 +59,37 @@ function addWinningLink(){
     //secretLink.innerHTML = 'winner winner, chicken dinner. Here is your prize';
     document.body.appendChild(secretLink)
     secretLink.src = src="https://ustream.tv/embed/17074538";
-    secretLink.style = "width: 100%; height: 100vh;";
-    btn.style.display = 'none';
+    secretLink.style = "width: 100%; height: 100px;";
 }
 //
+
+
+//Define btn elements for JS
+let btn = document.getElementsByClassName('btn')
+// Define btn Container for JS
+let btnContainer = document.getElementsByClassName('.btnContainer')
 
 //Define function if user loses 5 times
 function userFailes(lossCount){
     if (lossCount > 4){
-        console.log('Hack, unsuccessful. NSA is already tracking your whereabouts. We will find you, we will be watching you. Never stop looking over your shoulder!')
+        console.log('Hack, unsuccessful. NSA is already tracking your whereabouts. We will find you, we will be watching you. Never stop looking over your shoulder!');
+        btnContainer.style = 'visibility: hidden'; //Not working, need to find out why
         addlosingLink();
     }
 }
 
 function addlosingLink(){
-    let secretLink = document.createElement('a');
+    let secretLink = document.createElement('iframe');
     secretLink.innerHTML = 'Click here to unsubscribe from NSA tracking you.';
     document.body.appendChild(secretLink);
     secretLink.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
     secretLink.target = '_blank';
-    btn.style.display = 'none';
 }
 //
+
+
+
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 //Play a round when user clicks their choice, use the buttons id as the users choice. 
 let playRound = function(){
@@ -101,7 +113,7 @@ let playRound = function(){
 
 //Determine if users is successful or fails
     userVictorious(winCount);
-    userFailes(lossCount)
+    userFailes(lossCount);
 }
 //
 
@@ -111,9 +123,15 @@ document.getElementById('paper').onclick = playRound;
 document.getElementById('scissors').onclick = playRound;
 //
 
-let btn = document.getElementsByClassName('btn')
+
 
 //Link to Space station <iframe width="480" height="270" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
+
+//
+//
+// *********************************************************************
+//
+//
 
 //Matrix background
 let canvas = document.getElementById('canvas');

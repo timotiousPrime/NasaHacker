@@ -13,6 +13,29 @@ h1{
     color: #0f9;
 }
 
+.btnContainer{
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid red;
+    margin: 0 auto;
+}
+
+.btn{
+    padding: .2rem 1.2rem;
+}
+
+iframe{
+    left: 0;
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+}
+
 canvas {
     overflow: hidden;
     position: fixed;
