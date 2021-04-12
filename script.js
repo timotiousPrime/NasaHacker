@@ -109,7 +109,7 @@ function addWinningLink(){
     //secretLink.innerHTML = 'winner winner, chicken dinner. Here is your prize';
     document.body.appendChild(secretLink)
     secretLink.src = src="https://ustream.tv/embed/17074538";
-    secretLink.style = "width: 100%; height: 100px;";
+    secretLink.style = "width: 100%; height: 100%;";
 }
 //
 
