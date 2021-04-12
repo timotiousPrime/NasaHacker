@@ -44,16 +44,66 @@ function scoreCount(getResult) {
 //
 
 
+//Define btn elements for JS
+let btn = document.getElementsByClassName('btn');
+// Define btn Container for JS
+let btnContainer = document.getElementsByClassName('btnContainer');
+    
+//Function to display the user's choice. Dont know how to add it to the resultsInfo div yet.
+function displayChoices(){
+    let paraChoices = document.createElement('P');
+    paraChoices.innerHTML = `You chose ${userChoice}, NASA AI chose ${pcChoice}`;
+    document.body.appendChild(paraChoices)
+};
+
+//Function to display the PC's choice. Dont know how to add it to the resultsInfo div yet.
+//function displayPcChoice(){
+//    let paraPcChoice = document.createElement('P');
+//    paraPcChoice.innerHTML = `NASA AI chose ${pcChoice}`;
+//    document.body.appendChild(paraPcChoice)
+//};
+
+//Function to display is user won or lost the round
+function displayResults() {
+    let paraResults = document.createElement('P');
+    paraResults.innerHTML = `You ${result} this round`;
+    document.body.appendChild(paraResults);
+}
+
+//Function to show the score
+function displayScore(){
+    let paraScore = document.createElement('P');
+    paraScore.innerHTML = `Wins: ${winCount}, Draws: ${drawCount}, Loses: ${lossCount}`;
+    document.body.appendChild(paraScore);
+}
+
+//Function to display final win result banter
+function displayFinalWinResult(){
+    let paraFinalWinResult = document.createElement('P');
+    paraFinalWinResult.innerHTML = `Hack Successful! Congratulations`;
+    document.body.appendChild(paraFinalWinResult)
+}
+
+
+//Function to display final  loss result banter
+function displayFinalLoseResult(){
+    let paraFinalLoseResult = document.createElement('P');
+    paraFinalLoseResult.innerHTML = `Hack, unsuccessful. NSA is already tracking your whereabouts. We will find you, we will be watching you. Never stop looking over your shoulder!`;
+    document.body.appendChild(paraFinalLoseResult)
+}
+
 
 //Define function if user wins 5 times
 function userVictorious(winCount){
-    if (winCount > 4){
+    if (winCount > 2){
+        displayFinalWinResult()
         console.log('winner, winner, chicken dinner');
-        btnContainer.style = 'visibility: hidden'; //Not working, need to find out why
+        //btnContainer.classList.add('hidden'); //Not working, need to find out why
         addWinningLink();
     }
 }
 
+// Function that creates the winning video
 function addWinningLink(){
     let secretLink = document.createElement('iframe');
     //secretLink.innerHTML = 'winner winner, chicken dinner. Here is your prize';
@@ -64,22 +114,19 @@ function addWinningLink(){
 //
 
 
-//Define btn elements for JS
-let btn = document.getElementsByClassName('btn')
-// Define btn Container for JS
-let btnContainer = document.getElementsByClassName('.btnContainer')
-
 //Define function if user loses 5 times
 function userFailes(lossCount){
-    if (lossCount > 4){
+    if (lossCount > 2){
+        displayFinalLoseResult()
         console.log('Hack, unsuccessful. NSA is already tracking your whereabouts. We will find you, we will be watching you. Never stop looking over your shoulder!');
-        btnContainer.style = 'visibility: hidden'; //Not working, need to find out why
+        //btnContainer.classList.add('hidden'); //Not working, need to find out why
         addlosingLink();
     }
 }
 
+//Function that creates the losing link
 function addlosingLink(){
-    let secretLink = document.createElement('iframe');
+    let secretLink = document.createElement('a');
     secretLink.innerHTML = 'Click here to unsubscribe from NSA tracking you.';
     document.body.appendChild(secretLink);
     secretLink.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
@@ -88,25 +135,31 @@ function addlosingLink(){
 //
 
 
+let userChoice;
+let pcChoice;
+let result;
 
-// <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 //Play a round when user clicks their choice, use the buttons id as the users choice. 
 let playRound = function(){
     //create variable of users choice
     userChoice = this.id;
-    console.log('The user chose ' + userChoice)
+    console.log('The user chose ' + userChoice);
 
     //Stores the pc choice in a variable called pcChoice
     pcChoice = getPcChoice(CHOICES);
-    console.log('The pc chose ' + pcChoice)
+    console.log('The pc chose ' + pcChoice);
+    displayChoices();
 
     //Compare the two choices and see if the user wins, loses or draws, store result in a variable.
-    result = compareChoices(userChoice, pcChoice)
-    console.log('It\'s a ' + result + ' for the user')
+    result = compareChoices(userChoice, pcChoice);
+    console.log('It\'s a ' + result + ' for the user');
+    //displayResults();
 
     //Log results
     scoreCount(result);
+    displayScore();
     console.log(`${winCount} wins`);
     console.log(`${drawCount} draws`);
     console.log(`${lossCount} losses`);
@@ -114,6 +167,7 @@ let playRound = function(){
 //Determine if users is successful or fails
     userVictorious(winCount);
     userFailes(lossCount);
+    
 }
 //
 
@@ -124,7 +178,7 @@ document.getElementById('scissors').onclick = playRound;
 //
 
 
-
+// <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 //Link to Space station <iframe width="480" height="270" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
 
 //

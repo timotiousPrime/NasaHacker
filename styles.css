@@ -18,8 +18,21 @@ h1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border: 1px solid red;
     margin: 0 auto;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+p, a {
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    margin: .6rem 2rem;
+    font-size: 1rem;
+    font-family: monospace;
+    color: #0fe;
+    
 }
 
 .btn{
