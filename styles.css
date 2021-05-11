@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -71,11 +74,15 @@ canvas {
     display: block;
 }
 
-.initialLoad {
+.introPage {
     position: absolute;
     width: 100vw;
     height: 100vh;
     top: 0;
-    background-color: #333;
+    background-color: #121212;
     color: #FFF;
+}
+
+.introPage p {
+    margin: 2rem;
 }

@@ -1,4 +1,13 @@
+let introMessage = "Your team has been trying to hack into NASA's satellite network and have managed to get to the final back-door. However, standing in their way is NASA's all powerful super AI. The only way to hack into the system is to beat it at 5 round of Rock, Paper, Scissors. If you can beat the AI, you will be showered in glory and gain access to NASA's live satellite feed; but if you fail, the NSA will be on to you. They will hunt you down and make sure nobody remembers any hack, or you. Do you accept this challenge?"
 
+window.addEventListener('load', () => {
+    let introPage = document.createElement('div');
+    let introText = document.createElement('p');
+    document.body.appendChild(introPage);
+    introPage.appendChild(introText);
+    introPage.classList.add('introPage')
+    introText.textContent = introMessage
+})
 
 // Generates a random choice for the pc from the list of choices
 const CHOICES = ['rock', 'paper', 'scissors'];
