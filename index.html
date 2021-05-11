@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NASA Secret Backdoor</title>
+    <title>NASA Backdoor</title>
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
-    <div class="btnContainer">
-        <input type="button" value="rock" class="btn" id="rock"></input>
-        <input type="button" value="paper" class="btn" id="paper"></input>
-        <input type="button" value="scissors" class="btn" id="scissors"></input>
+    <header>
+        <h1>
+            NASA Backdoor
+        </h1>
+    </header>
+    <div id="btnContainer">
+        <button id="rock" class="btn"> <img src="./Media/Images/fist.png" alt="Astroid"> </button>
+        <button id="paper" class="btn"> <img src="./Media/Images/privacy.png" alt="Space Station"> </button>
+        <button id="scissors" class="btn"> <img src="./Media/Images/peace.png" alt="Drone"> </button>
     </div>
-    <d class="resultsInfo">
-        
-    </d>
+    <div class="results">
+        <p id="choicesInfo"></p>
+        <p id="resultsInfo"></p>
+        <p id="scoreInfo"></p>
+    </div>
     <canvas id="canvas"></canvas>
 </body>
 <script src="./script.js"></script>
 </html>
+
