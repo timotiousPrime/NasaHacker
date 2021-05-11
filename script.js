@@ -7,7 +7,20 @@ window.addEventListener('load', () => {
     introPage.appendChild(introText);
     introPage.classList.add('introPage')
     introText.textContent = introMessage
+
+    let ele = '<span>' + introMessage.split('').join('</span> <span>') + '</span>';
+
+    $(ele).hide().appendTo('p').each(function(i) {
+        $(this).delay(100 * i).css({
+            display: 'inline',
+            opacity: 0
+        }).animate({
+            opacity: 1
+        }, 100);
+    })
 })
+
+
 
 // Generates a random choice for the pc from the list of choices
 const CHOICES = ['rock', 'paper', 'scissors'];
