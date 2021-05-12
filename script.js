@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     introPage.classList.add('introPage');
     
     let i = 0;
-    let speed = 2;
+    let speed = 80;
 
 
     function typeWriter() {
@@ -56,11 +56,6 @@ window.addEventListener('load', () => {
         console.log('The user is on the page')
         typeWriter()
     })
-
-   
-
-
-
 
 })
 
@@ -148,7 +143,7 @@ function displayFinalWinResult(){
     let paraFinalWinResult = document.createElement('P');
     paraFinalWinResult.classList.add('results');
 
-    paraFinalWinResult.innerHTML = `Hack Successful! Congratulations`;
+    paraFinalWinResult.innerHTML = `Hack Successful! Congratulations. \n Live feed loading...`;
     document.body.appendChild(paraFinalWinResult);
 
     // Unlocks back door into the international space station's cameras 
