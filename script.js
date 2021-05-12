@@ -1,4 +1,4 @@
-let introMessage = "Your team has been trying to hack into NASA's satellite network and have managed to get to the final back-door. However, standing in their way is NASA's all powerful super AI. The only way to hack into the system is to beat it at 5 round of Rock, Paper, Scissors. If you can beat the AI, you will be showered in glory and gain access to NASA's live satellite feed; but if you fail, the NSA will be on to you. They will hunt you down and make sure nobody remembers any hack, or you. Do you accept this challenge?"
+let introMessage = "Your team has been trying to hack into NASA's satellite network and have managed to get to the final back-door. However, standing in their way is NASA's all powerful super AI. The only way to hack into the system is to beat it at 5 rounds of Rock, Paper, Scissors. If you can beat the AI, you will be showered in glory and gain access to NASA's live satellite feed; but if you fail, the NSA will be on to you. They will hunt you down and make sure nobody remembers any hack, or you. Do you accept this challenge?"
 
 window.addEventListener('load', () => {
     let introPage = document.createElement('div');
@@ -6,18 +6,18 @@ window.addEventListener('load', () => {
     document.body.appendChild(introPage);
     introPage.appendChild(introText);
     introPage.classList.add('introPage')
-    introText.textContent = introMessage
+    
+    let i = 0;
+    let speed = 80;
 
-    let ele = '<span>' + introMessage.split('').join('</span> <span>') + '</span>';
-
-    $(ele).hide().appendTo('p').each(function(i) {
-        $(this).delay(100 * i).css({
-            display: 'inline',
-            opacity: 0
-        }).animate({
-            opacity: 1
-        }, 100);
-    })
+    function typeWriter() {
+        if (i < introMessage.length) {
+            introText.textContent += introMessage.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed)
+        }
+    }
+    typeWriter()
 })
 
 
