@@ -11,10 +11,6 @@ window.addEventListener('load', () => {
     let speed = 2;
 
 
-    function lengthCheck() {
-        console.log(introText.textContent.length)
-    }
-
     function typeWriter() {
         if (i < introMessage.length) {
             introText.textContent += introMessage.charAt(i);
@@ -45,13 +41,6 @@ window.addEventListener('load', () => {
         console.log('The user is on the page')
         typeWriter()
     })
-    
-    function displayButtons () {
-        
-    }
-
-    displayButtons()
-
 
 
 })
