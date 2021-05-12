@@ -25,22 +25,41 @@ window.addEventListener('load', () => {
     let acceptButton = document.createElement('button');
     let declineButton = document.createElement('button');
     let yesNoBtns = document.createElement('div');
-    
+
     function addButtons() {
-        introPage.appendChild(yesNoBtns)
+        introPage.appendChild(yesNoBtns);
         yesNoBtns.appendChild(acceptButton);
         yesNoBtns.appendChild(declineButton);
         yesNoBtns.classList.add('yesNoBtnsContainer');
         acceptButton.classList.add('yesNoBtns');
+        acceptButton.id = 'accept';
         declineButton.classList.add('yesNoBtns');
+        declineButton.id = 'decline';
         acceptButton.textContent = 'Accept';
         declineButton.textContent = 'Decline';
+        
+        let accept = document.querySelector('button#accept');
+        accept.addEventListener('click', () => {
+            console.log('User accepts');
+            introPage.classList.add('hidden');
+        });
+
+        let decline = document.querySelector('#decline');
+        decline.addEventListener('click', () => {
+            console.log('User declines');
+            introText.classList.add('hidden');
+            yesNoBtns.classList.add('hidden');
+        });
     }
 
     document.body.addEventListener('mouseenter', () => {
         console.log('The user is on the page')
         typeWriter()
     })
+
+   
+
+
 
 
 })

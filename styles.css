@@ -97,7 +97,7 @@ canvas {
     margin: 1rem;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: #FFF;
 }
 
@@ -107,3 +107,4 @@ canvas {
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
