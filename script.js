@@ -5,19 +5,55 @@ window.addEventListener('load', () => {
     let introText = document.createElement('p');
     document.body.appendChild(introPage);
     introPage.appendChild(introText);
-    introPage.classList.add('introPage')
+    introPage.classList.add('introPage');
     
     let i = 0;
-    let speed = 80;
+    let speed = 2;
+
+
+    function lengthCheck() {
+        console.log(introText.textContent.length)
+    }
 
     function typeWriter() {
         if (i < introMessage.length) {
             introText.textContent += introMessage.charAt(i);
             i++;
-            setTimeout(typeWriter, speed)
+            setTimeout(typeWriter, speed);
+            if (introText.textContent.length === introMessage.length) {
+                addButtons()
+            }
         }
     }
-    typeWriter()
+
+    let acceptButton = document.createElement('button');
+    let declineButton = document.createElement('button');
+    let yesNoBtns = document.createElement('div');
+    
+    function addButtons() {
+        introPage.appendChild(yesNoBtns)
+        yesNoBtns.appendChild(acceptButton);
+        yesNoBtns.appendChild(declineButton);
+        yesNoBtns.classList.add('yesNoBtnsContainer');
+        acceptButton.classList.add('yesNoBtns');
+        declineButton.classList.add('yesNoBtns');
+        acceptButton.textContent = 'Accept';
+        declineButton.textContent = 'Decline';
+    }
+
+    document.body.addEventListener('mouseenter', () => {
+        console.log('The user is on the page')
+        typeWriter()
+    })
+    
+    function displayButtons () {
+        
+    }
+
+    displayButtons()
+
+
+
 })
 
 
@@ -110,8 +146,10 @@ function displayFinalWinResult(){
     // Unlocks back door into the international space station's cameras 
     let secretLink = document.createElement('iframe');
     document.body.appendChild(secretLink)
-    secretLink.src = src="https://ustream.tv/embed/17074538";
+    secretLink.src = "https://www.youtube.com/embed/DDU-rZs-Ic4";
     secretLink.style = "position: absolute; width: 100vw; height: 100vh;";
+    secretLink.allow = "autoplay"
+    
 
     // Hide buttons to end the game
     let buttons = document.querySelector('#btnContainer');
