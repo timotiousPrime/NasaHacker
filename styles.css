@@ -78,23 +78,23 @@ canvas {
 .introPage {
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 200vh;
     top: 0;
     background-color: #121212;
     color: #FFF;
 }
 
 .introPage p {
-    margin: 2rem;    
+    margin: 1.6rem;    
     font-family: 'Source Code Pro', monospace;  
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: #FFF;
 }
 
 .yesNoBtns {
     padding: .4rem;
     text-align: center;
-    margin: 1rem;
+    margin: .6rem;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
     border-radius: 10px;
