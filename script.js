@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
 // The function thats displays the text like a typewriter
    
 let i = 0;
-let speed = 80;
+let speed = 40;
 
 function typeWriter() {
     //iterate through each character of the intro message
