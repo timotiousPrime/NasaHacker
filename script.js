@@ -2,6 +2,17 @@
 // Message to explain the game
 let introMessage = "Your team has been trying to hack into NASA's satellite network and have managed to get to the final back-door. However, standing in their way is NASA's all powerful super AI. The only way to hack into the system is to beat it at 5 rounds of Rock, Paper, Scissors. If you can beat the AI, you will be showered in glory and gain access to NASA's live satellite feed; but if you fail, the NSA will be on to you. They will hunt you down and make sure nobody remembers any hack, or you. Do you accept this challenge?"
 
+
+// listen for when the page loads to load the intro
+window.addEventListener('load', () => {
+    let introPage = document.createElement('div');
+    let introText = document.createElement('p');
+    //display the page and text for the intro
+    document.body.appendChild(introPage);
+    introPage.appendChild(introText);
+    introPage.classList.add('introPage');
+ 
+
 // The function thats displays the text like a typewriter
    
 let i = 0;
@@ -60,15 +71,6 @@ function addButtons() {
     });
 }
 
-// listen for when the page loads to load the intro
-window.addEventListener('load', () => {
-    let introPage = document.createElement('div');
-    let introText = document.createElement('p');
-    //display the page and text for the intro
-    document.body.appendChild(introPage);
-    introPage.appendChild(introText);
-    introPage.classList.add('introPage');
- 
     // wait for when a user has their mouse on the page before loading the intro text
     document.body.addEventListener('mouseenter', () => {
         console.log('The user is on the page')
@@ -232,8 +234,6 @@ function userFailes(lossCount){
 }
 
 
-
-
 let userChoice;
 let pcChoice;
 let result;
@@ -241,7 +241,15 @@ let result;
 
 
 //Play a round when user clicks their choice, use the buttons id as the users choice. 
-let playRound = function(clicked){
+let playRound = function(e){
+
+
+    // Highlights the button selected by the user 
+    this.classList.add('chosenBtn')
+    console.log(this.classList.value)
+    setTimeout( () => {
+        this.classList.remove('chosenBtn')}, 150)
+
     //create variable of users choice
     userChoice = this.id;
     console.log('The user chose ' + userChoice);
