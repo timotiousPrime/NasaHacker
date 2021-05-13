@@ -1,57 +1,75 @@
+// INTRO - Explains what the game is about. 
+// Message to explain the game
 let introMessage = "Your team has been trying to hack into NASA's satellite network and have managed to get to the final back-door. However, standing in their way is NASA's all powerful super AI. The only way to hack into the system is to beat it at 5 rounds of Rock, Paper, Scissors. If you can beat the AI, you will be showered in glory and gain access to NASA's live satellite feed; but if you fail, the NSA will be on to you. They will hunt you down and make sure nobody remembers any hack, or you. Do you accept this challenge?"
 
+// The function thats displays the text like a typewriter
+   
+let i = 0;
+let speed = 80;
+
+function typeWriter() {
+    //iterate through each character of the intro message
+    if (i < introMessage.length) {
+        introText.textContent += introMessage.charAt(i);
+        i++;
+        // set the speed at which each character is displayed
+        setTimeout(typeWriter, speed);
+        //When all the text has been displayed, add the buttons to the intro page
+        if (introText.textContent.length === introMessage.length) {
+            addButtons()
+        }
+    }
+}
+
+//define the div and buttons that accept or decline the challenge
+let acceptButton = document.createElement('button');
+let declineButton = document.createElement('button');
+let yesNoBtns = document.createElement('div');
+
+// create the function that adds the buttons
+function addButtons() {
+    //add the buttons div to the DOM
+    introPage.appendChild(yesNoBtns);
+    //add the buttons to the div
+    yesNoBtns.appendChild(acceptButton);
+    yesNoBtns.appendChild(declineButton);
+    // set the class for the button container
+    yesNoBtns.classList.add('yesNoBtnsContainer');
+    // set the class and ID for the buttons
+    acceptButton.classList.add('yesNoBtns');
+    acceptButton.id = 'accept';
+    declineButton.classList.add('yesNoBtns');
+    declineButton.id = 'decline';
+    // add the text for the buttons
+    acceptButton.textContent = 'Accept';
+    declineButton.textContent = 'Decline';
+    
+    // listen for when the accept button is clicked and make the game available to play
+    let accept = document.querySelector('button#accept');
+    accept.addEventListener('click', () => {
+        console.log('User accepts');
+        introPage.classList.add('hidden');
+    });
+
+    // listen for when the decline button is clicked and make page go blank
+    let decline = document.querySelector('#decline');
+    decline.addEventListener('click', () => {
+        console.log('User declines');
+        introText.classList.add('hidden');
+        yesNoBtns.classList.add('hidden');
+    });
+}
+
+// listen for when the page loads to load the intro
 window.addEventListener('load', () => {
     let introPage = document.createElement('div');
     let introText = document.createElement('p');
+    //display the page and text for the intro
     document.body.appendChild(introPage);
     introPage.appendChild(introText);
     introPage.classList.add('introPage');
-    
-    let i = 0;
-    let speed = 80;
-
-
-    function typeWriter() {
-        if (i < introMessage.length) {
-            introText.textContent += introMessage.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed);
-            if (introText.textContent.length === introMessage.length) {
-                addButtons()
-            }
-        }
-    }
-
-    let acceptButton = document.createElement('button');
-    let declineButton = document.createElement('button');
-    let yesNoBtns = document.createElement('div');
-
-    function addButtons() {
-        introPage.appendChild(yesNoBtns);
-        yesNoBtns.appendChild(acceptButton);
-        yesNoBtns.appendChild(declineButton);
-        yesNoBtns.classList.add('yesNoBtnsContainer');
-        acceptButton.classList.add('yesNoBtns');
-        acceptButton.id = 'accept';
-        declineButton.classList.add('yesNoBtns');
-        declineButton.id = 'decline';
-        acceptButton.textContent = 'Accept';
-        declineButton.textContent = 'Decline';
-        
-        let accept = document.querySelector('button#accept');
-        accept.addEventListener('click', () => {
-            console.log('User accepts');
-            introPage.classList.add('hidden');
-        });
-
-        let decline = document.querySelector('#decline');
-        decline.addEventListener('click', () => {
-            console.log('User declines');
-            introText.classList.add('hidden');
-            yesNoBtns.classList.add('hidden');
-        });
-    }
-
+ 
+    // wait for when a user has their mouse on the page before loading the intro text
     document.body.addEventListener('mouseenter', () => {
         console.log('The user is on the page')
         typeWriter()
